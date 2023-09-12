@@ -105,6 +105,8 @@ namespace strategiapeli
             Random randomNumber = new Random();
             Unit chosenAttacker;
             Unit chosenTarget;
+            string x = "";
+            int round = 0;
 
             List<Unit> humans = new List<Unit>();
             humans.Add(new Unit("Human 1", 10, 5));
@@ -118,15 +120,23 @@ namespace strategiapeli
 
             while (true)
             {
+                LoadHealth(humans, round);
+                LoadHealth(skeltals, round);
 
-                WriteUnits(humans, skeltals);
+                WriteUnits(humans, skeltals, round);
 
                 while (true)
                 {
                     Console.WriteLine("Choose attacker");
                     try
                     {
-                        chosenAttacker = humans[Convert.ToInt32(Console.ReadLine()) - 1];
+                        x = Console.ReadLine();
+                        chosenAttacker = humans[Convert.ToInt32(x) - 1];
+                    }
+                    catch (OverflowException)
+                    {
+                        Console.WriteLine("Choice invalid");
+                        continue;
                     }
                     catch (ArgumentOutOfRangeException)
                     {
@@ -135,8 +145,17 @@ namespace strategiapeli
                     }
                     catch (FormatException)
                     {
-                        Console.WriteLine("Choice invalid");
-                        continue;
+                        if (x == "z" && round > 0)
+                        {
+                            round = round - 1;
+                            chosenAttacker = humans[0];
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Choice invalid");
+                            continue;
+                        }
                     }
 
                     if (!chosenAttacker.alive)
@@ -149,6 +168,11 @@ namespace strategiapeli
                         break;
                     }
                 }
+                if (x == "z")
+                {
+                    Console.Clear();
+                    continue;
+                }
                 Console.WriteLine(chosenAttacker.name + " chosen");
 
 
@@ -160,6 +184,11 @@ namespace strategiapeli
                     try
                     {
                         chosenTarget = skeltals[Convert.ToInt32(Console.ReadLine()) - 1];
+                    }
+                    catch (OverflowException)
+                    {
+                        Console.WriteLine("Choice invalid");
+                        continue;
                     }
                     catch (ArgumentOutOfRangeException)
                     {
@@ -184,7 +213,7 @@ namespace strategiapeli
                 }
 
                 Console.WriteLine(chosenTarget.name + " chosen");
-
+                
                 Attack(chosenAttacker, chosenTarget);
 
                 foreach (Unit skeltal in skeltals)
@@ -247,8 +276,11 @@ namespace strategiapeli
                     break;
                 }
 
-                
                 Console.Clear();
+                round++;
+
+                SaveHealth(humans, round);
+                SaveHealth(skeltals, round);
             }
             Console.Clear();
             if (gameWon)
@@ -259,6 +291,26 @@ namespace strategiapeli
                 return GameState.Loss;
             }
             
+        }
+
+        static void SaveHealth(List<Unit> list, int round)
+        {
+            foreach(Unit unit in list)
+            {
+                unit.savedHealth[round] = unit.health;
+            }
+        }
+
+        static void LoadHealth(List<Unit> list, int round)
+        {
+            foreach (Unit unit in list)
+            {
+                unit.health = unit.savedHealth[round];
+                if (unit.health > 0)
+                {
+                    unit.alive = true;
+                }
+            }
         }
 
         static void Attack(Unit attacker, Unit target)
@@ -284,7 +336,7 @@ namespace strategiapeli
             Console.WriteLine("");
         }
 
-        static void WriteUnits(List<Unit> humans, List<Unit> skeltals)
+        static void WriteUnits(List<Unit> humans, List<Unit> skeltals, int round)
         {
             int unitNumber = 1;
             Console.SetCursorPosition(0, 0);
@@ -321,6 +373,7 @@ namespace strategiapeli
             }
 
             Console.SetCursorPosition(0, humans.Count + 2);
+            Console.WriteLine("Round: " + (round + 1));
         }
 
         static void WaitForSeconds(int seconds)

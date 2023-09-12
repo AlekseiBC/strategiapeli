@@ -1,0 +1,16 @@
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\bin\Release\net5.0\strategiapeli.exe
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\bin\Release\net5.0\strategiapeli.deps.json
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\bin\Release\net5.0\strategiapeli.runtimeconfig.json
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\bin\Release\net5.0\strategiapeli.runtimeconfig.dev.json
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\bin\Release\net5.0\strategiapeli.dll
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\bin\Release\net5.0\ref\strategiapeli.dll
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\bin\Release\net5.0\strategiapeli.pdb
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.csproj.AssemblyReference.cache
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.AssemblyInfoInputs.cache
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.AssemblyInfo.cs
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.csproj.CoreCompileInputs.cache
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.dll
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\ref\strategiapeli.dll
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.pdb
+C:\Users\s2001175\Desktop\.net\strategiapeli\strategiapeli\obj\Release\net5.0\strategiapeli.genruntimeconfig.cache

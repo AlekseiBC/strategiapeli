@@ -12,6 +12,7 @@ namespace strategiapeli
         public int health;
         public int attack;
         public bool alive;
+        public int[] savedHealth = new int[1000];
 
         public Unit(string unitName, int unitHealth, int unitAttack)
         {
@@ -19,6 +20,7 @@ namespace strategiapeli
             health = unitHealth;
             attack = unitAttack;
             alive = true;
+            savedHealth[0] = unitHealth;
         }
     }
 }
